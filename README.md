@@ -1,6 +1,8 @@
 simple_jobs - A small job runner for one-offs
 =====
 
+[![Build Status](https://travis-ci.org/shaneutt/simple_jobs.svg?branch=master)](https://travis-ci.org/shaneutt/simple_jobs.svg?branch=master)
+
 "simple_jobs" is a small library for kicking up a few thousand small jobs into a
 queue for quick one-offs.
 
@@ -15,23 +17,31 @@ Shell Usage
 
 Start the shell:
 
-  make shell
+```bash
+make shell
+```
 
 Then while in the shell make your job:
 
-  Job = fun() ->
-    io:format("I'm a job!", [])
-  end.
+```erlang
+Job = fun() ->
+  io:format("I'm a job!", [])
+end.
+```
 
 Then spam it!
 
-  simple_jobs:run(Job, Total).
+```erlang
+simple_jobs:run(Job, Total).
+```
 
 Escript Usage (via Rebar3)
 ---
 
 Add this as a dependency of your Rebar3 library for escriptization:
 
-  {deps, [
+```erlang
+{deps, [
     {simple_jobs, ".*", {git, "git://github.com/shaneutt/simple_jobs", {branch, "master"}}}
-  ]}.
+]}.
+```
